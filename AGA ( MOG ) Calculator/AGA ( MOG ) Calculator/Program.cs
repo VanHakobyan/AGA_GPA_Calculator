@@ -17,31 +17,15 @@ namespace AGA___MOG___Calculator
             Console.Write("Prepared by` ");
             #region MY NAME SLEEP
             Console.ForegroundColor = ConsoleColor.Green;
-            Thread.Sleep(200);
-            Console.Write("V");
-            Thread.Sleep(200);
-            Console.Write("A");
-            Thread.Sleep(200);
-            Console.Write("N");
-            Thread.Sleep(200);
-            Console.Write("  H");
-            Thread.Sleep(200);
-            Console.Write("A");
-            Thread.Sleep(200);
-            Console.Write("K");
-            Thread.Sleep(200);
-            Console.Write("O");
-            Thread.Sleep(200);
-            Console.Write("B");
-            Thread.Sleep(200);
-            Console.Write("Y");
-            Thread.Sleep(200);
-            Console.Write("A");
-            Thread.Sleep(200);
-            Console.Write("N");
-            Thread.Sleep(250);
+            string name = "VAN HAKOBYAN";
+            for (int i = 0; i < name.Length; i++)
+            {
+                Thread.Sleep(160);
+                Console.Write(name[i]);
+            }
             Console.WriteLine();
             #endregion
+
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Thread.Sleep(300);
             DateTime thisData = DateTime.Now;
@@ -55,15 +39,16 @@ namespace AGA___MOG___Calculator
             Console.ForegroundColor = ConsoleColor.Cyan;
 
         k: Console.Write("Insert your number of Lessons - ");
-
-            n = Convert.ToInt16(Console.ReadLine());
-
-
-            if (n <= 0 || n >= 10)
+            string Lessons = string.Empty;
+            Lessons = Console.ReadLine();
+            if (!methods.isNumber(Lessons))
             {
-                Console.WriteLine("ERROR");
+                Console.WriteLine("error: Input number");
                 goto k;
             }
+            else
+                n = Int32.Parse(Lessons);
+            
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine();
             float SumPoint = 0;
@@ -73,20 +58,41 @@ namespace AGA___MOG___Calculator
             float[] ArrayPoint = new float[n];
             float[] ArrayCredit = new float[n];
             #region point and credit insert
+            string Points = string.Empty;
+            string Credit = string.Empty;
             for (int i = 0; i < ArrayPoint.Length; i++)
             {
             N: Console.Write("Please Upload Points N{0} - ", i + 1);
                 ArrayPoint[i] = Convert.ToSingle(Console.ReadLine());
+                //Points = Console.ReadLine();
+                // if (!methods.isNumber(Points))
+                // {
+                //     Console.WriteLine("error: Input number");
+                //     goto N;
+                // }
+                // else
+                //     ArrayPoint[i] = Single.Parse(Points);
+
                 if (ArrayPoint[i] < 0 && ArrayPoint[i] > 100)
                 {
                     Console.WriteLine("Error: it is not Calc...");
                     goto N;
                 }
 
-                // Console.WriteLine();
+
                 Console.Write("");
-                Console.Write("        Please Upload Credit N{0} - ", i + 1);
+       /* L:*/  Console.Write("        Please Upload Credit N{0} - ", i + 1);
                 ArrayCredit[i] = Convert.ToSingle(Console.ReadLine());
+
+            //Credit = Console.ReadLine();
+            //if (!methods.isNumber(Credit))
+            //{
+            //    Console.WriteLine("error: Input number");
+            //    goto L;
+            //}
+            //else
+            //    ArrayPoint[i] = Single.Parse(Credit);
+
             M: if (ArrayCredit[i] <= 0 && ArrayCredit[i] > 15)
                 {
                     Console.WriteLine("Error: it is not Calc...");

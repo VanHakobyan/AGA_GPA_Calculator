@@ -67,5 +67,10 @@ Console.WriteLine();
 մամբ։ Կրթական մոդուլին հատկացված կրեդիտները ուսանողին
 շնորհվում են ամբողջությամբ, այլ ոչ թե առանձին մասերով։<br>
 
-For exemple<br>
-![myimage-alt-tag](https://i.gyazo.com/c1b7b82ae39df6571d42b9dd770bb92f.png)
+* For exemple<br>
+
+<p align="center">
+<img  src="https://i.gyazo.com/c1b7b82ae39df6571d42b9dd770bb92f.png">
+</p><br><br>
+
+

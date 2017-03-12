@@ -37,18 +37,33 @@ namespace AGA___MOG___Calculator
             Console.WriteLine(new string('-', 30));
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Cyan;
-
-        k: Console.Write("Insert your number of Lessons - ");
-            string Lessons = string.Empty;
-            Lessons = Console.ReadLine();
-            if (!methods.isNumber(Lessons))
+            bool flag = true;
+            while (flag)
             {
-                Console.WriteLine("error: Input number");
-                goto k;
+                Console.Write("Insert your number of Lessons - ");
+                string Lessons = string.Empty;
+                Lessons = Console.ReadLine();
+
+                try
+                {
+                    if (!methods.isNumber(Lessons))
+                    {
+                        Console.WriteLine("error: Input number");
+                    }
+                    else
+                    {
+                        n = Int32.Parse(Lessons);
+                        flag = false;
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Input Correctly");
+                }
+
             }
-            else
-                n = Int32.Parse(Lessons);
             
+
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine();
             float SumPoint = 0;
@@ -62,7 +77,8 @@ namespace AGA___MOG___Calculator
             string Credit = string.Empty;
             for (int i = 0; i < ArrayPoint.Length; i++)
             {
-            N: Console.Write("Please Upload Points N{0} - ", i + 1);
+
+                N: Console.Write("Please Upload Points N{0} - ", i + 1);
                 ArrayPoint[i] = Convert.ToSingle(Console.ReadLine());
                 //Points = Console.ReadLine();
                 // if (!methods.isNumber(Points))
@@ -81,19 +97,20 @@ namespace AGA___MOG___Calculator
 
 
                 Console.Write("");
-       /* L:*/  Console.Write("        Please Upload Credit N{0} - ", i + 1);
+                /* L:*/
+                Console.Write("        Please Upload Credit N{0} - ", i + 1);
                 ArrayCredit[i] = Convert.ToSingle(Console.ReadLine());
 
-            //Credit = Console.ReadLine();
-            //if (!methods.isNumber(Credit))
-            //{
-            //    Console.WriteLine("error: Input number");
-            //    goto L;
-            //}
-            //else
-            //    ArrayPoint[i] = Single.Parse(Credit);
+                //Credit = Console.ReadLine();
+                //if (!methods.isNumber(Credit))
+                //{
+                //    Console.WriteLine("error: Input number");
+                //    goto L;
+                //}
+                //else
+                //    ArrayPoint[i] = Single.Parse(Credit);
 
-            M: if (ArrayCredit[i] <= 0 && ArrayCredit[i] > 15)
+                M: if (ArrayCredit[i] <= 0 && ArrayCredit[i] > 15)
                 {
                     Console.WriteLine("Error: it is not Calc...");
                     goto M;
@@ -174,7 +191,7 @@ namespace AGA___MOG___Calculator
                 };
             }
             if (m == 'n' || m == 'N')
-                goto k;
+             //TODO:   goto k;
             #endregion
             Console.ReadKey();
         }

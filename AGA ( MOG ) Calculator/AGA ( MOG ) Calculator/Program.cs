@@ -26,7 +26,7 @@ namespace AGA___MOG___Calculator
             Console.WriteLine();
             #endregion
 
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            k: Console.ForegroundColor = ConsoleColor.DarkGreen;
             Thread.Sleep(300);
             DateTime thisData = DateTime.Now;
             Console.WriteLine(thisData.ToString());
@@ -191,7 +191,7 @@ namespace AGA___MOG___Calculator
                 };
             }
             if (m == 'n' || m == 'N')
-             //TODO:   goto k;
+            goto k;
             #endregion
             Console.ReadKey();
         }

@@ -48,7 +48,7 @@ namespace AGA___MOG___Calculator
                 {
                     if (!methods.isNumber(Lessons))
                     {
-                        Console.WriteLine("error: Input number");
+                        Console.WriteLine("Error: Input number");
                     }
                     else
                     {
@@ -80,7 +80,7 @@ namespace AGA___MOG___Calculator
 
                 N: Console.Write("Please Upload Points N{0} - ", i + 1);
                 ArrayPoint[i] = Convert.ToSingle(Console.ReadLine());
-                //Points = Console.ReadLine();
+                //TODO: Points = Console.ReadLine();
                 // if (!methods.isNumber(Points))
                 // {
                 //     Console.WriteLine("error: Input number");
@@ -101,7 +101,7 @@ namespace AGA___MOG___Calculator
                 Console.Write("        Please Upload Credit N{0} - ", i + 1);
                 ArrayCredit[i] = Convert.ToSingle(Console.ReadLine());
 
-                //Credit = Console.ReadLine();
+                //TODO: Credit = Console.ReadLine();
                 //if (!methods.isNumber(Credit))
                 //{
                 //    Console.WriteLine("error: Input number");
@@ -150,6 +150,8 @@ namespace AGA___MOG___Calculator
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("For counting again Enter - N or n");
 
+
+            
             char m = Convert.ToChar(Console.ReadLine());
             if (m == 'y' || m == 'Y')
             {
@@ -184,7 +186,7 @@ namespace AGA___MOG___Calculator
                 }
                 catch
                 {
-                    var p = new ProcessStartInfo("chrome.exe");
+                    var p = new ProcessStartInfo("Firefox.exe");
                     p.Arguments = "http://www.aparanblog.do.am";
                     Process.Start(p);
 

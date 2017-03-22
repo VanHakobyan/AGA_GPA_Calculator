@@ -148,7 +148,7 @@ namespace AGA___MOG___Calculator
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("For my website Enter - V or v");
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("For counting again Enter - n or N");
+            Console.WriteLine("For counting again Enter - N or n");
 
             char m = Convert.ToChar(Console.ReadLine());
             if (m == 'y' || m == 'Y')

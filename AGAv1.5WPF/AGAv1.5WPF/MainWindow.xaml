@@ -34,8 +34,11 @@
             <TextBox x:Name="credit7" Margin="7" Height="20" Width="60"></TextBox>
 
         </StackPanel>
-        <StackPanel Grid.Column="2"></StackPanel>
         <Button Grid.ColumnSpan="2" x:Name="calculator" Content="Հաշվի՛ր" HorizontalAlignment="Stretch" Margin="28,280,28,10" RenderTransformOrigin="0.5,1.4" Click="calculator_Click"/>
+        <StackPanel Grid.Column="2" Margin="85,10,5,283">
+            <TextBlock Margin="5" FontWeight="Bold" Text="Ողջո՛ւյն հարգելի ուսանող " FontFamily="Rage Italic"></TextBlock>
+        </StackPanel>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="46,61,-62,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="120" Width="268"><Run Text="AGA v1.5-ի միջոցով դուք կարող"/><Run Text=" "/><Run Text="եք հաշվել "/><Run Text=" "/><Run Text="բարձրագույն ուսումնական"/><Run Text=" "/><Run Text="հաստատության ձեր ընթացիկ ՄՈԳ-ը (Միջին որակավորման գնահատականը)"/><Run Text=" "/><Run Text="հիմնվելով հիմնական ռարկաներից ստացած գնահատականների և համապատասխան կրեդիտների հիման վրա:"/></TextBlock>
 
     </Grid>
 </Window>

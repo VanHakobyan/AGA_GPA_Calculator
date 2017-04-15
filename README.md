@@ -1,8 +1,8 @@
 # AGA
 ### MOG(ՄՈԳ) Calculator
-<p align="center">
+
 <img  src="https://www.dropbox.com/s/1l0xcecfl1lzo48/AGAv1%2C5.gif">
-</p><br><br>
+
 
 ```C#
 for (int i = 0; i < 7; i++)

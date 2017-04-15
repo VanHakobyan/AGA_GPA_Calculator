@@ -1,7 +1,7 @@
 # AGA
 ### MOG(ՄՈԳ) Calculator
 <p align="center">
-<img  src="https://www.dropbox.com/s/1l0xcecfl1lzo48/AGAv1%2C5.gif?dl=0">
+<img  src="https://www.dropbox.com/s/1l0xcecfl1lzo48/AGAv1%2C5.gif">
 </p><br><br>
 
 ```C#
@@ -81,7 +81,7 @@ MessageBox.Show(Calculator.ToString());
 մամբ։ Կրթական մոդուլին հատկացված կրեդիտները ուսանողին
 շնորհվում են ամբողջությամբ, այլ ոչ թե առանձին մասերով։<br>
 
-* For exemple<br>
+
 
 <p align="center">
 <img  src="https://i.gyazo.com/e24fc70dcb84141088b661de9a567814.png">

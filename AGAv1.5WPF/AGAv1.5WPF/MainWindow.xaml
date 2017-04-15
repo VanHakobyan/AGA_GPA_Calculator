@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AGAv1._5WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Միջին Որակավորման Գնահատականի Հաշվիչ v1.5" Height="350" Width="525">
     <Grid>
-        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" ></ColumnDefinition>
+            <ColumnDefinition Width="Auto" ></ColumnDefinition>
+            <ColumnDefinition Width="Auto" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Column="0" Margin="5,5,5,44" >
+            <Label x:Name="apr" HorizontalAlignment="Center">Գնահատական</Label>
+            <TextBox x:Name="appraisal1" Margin="7" Height="20" Width="60"></TextBox>
+            <TextBox x:Name="appraisal2" Margin="7" Height="20" Width="60"></TextBox>
+            <TextBox x:Name="appraisal3" Margin="7" Height="20" Width="60"></TextBox>
+            <TextBox x:Name="appraisal4" Margin="7" Height="20" Width="60"></TextBox>
+            <TextBox x:Name="appraisal5" Margin="7" Height="20" Width="60"></TextBox>
+            <TextBox x:Name="appraisal6" Margin="7" Height="20" Width="60"></TextBox>
+            <TextBox x:Name="appraisal7" Margin="7" Height="20" Width="60"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="5,5,5,44">
+            <Label x:Name="crd" HorizontalAlignment="Center">Կրեդիտ</Label>
+            <TextBox x:Name="credit1" Margin="7" Height="20" Width="60"></TextBox>
+            <TextBox x:Name="credit2" Margin="7" Height="20" Width="60"></TextBox>
+            <TextBox x:Name="credit3" Margin="7" Height="20" Width="60"></TextBox>
+            <TextBox x:Name="credit4" Margin="7" Height="20" Width="60"></TextBox>
+            <TextBox x:Name="credit5" Margin="7" Height="20" Width="60"></TextBox>
+            <TextBox x:Name="credit6" Margin="7" Height="20" Width="60"></TextBox>
+            <TextBox x:Name="credit7" Margin="7" Height="20" Width="60"></TextBox>
+
+        </StackPanel>
+        <StackPanel Grid.Column="2"></StackPanel>
+        <Button Grid.ColumnSpan="2" x:Name="calculator" Content="Հաշվի՛ր" HorizontalAlignment="Stretch" Margin="28,280,28,10" RenderTransformOrigin="0.5,1.4" Click="calculator_Click"/>
+
     </Grid>
 </Window>

@@ -24,5 +24,17 @@ namespace AGAv1._5WPF
         {
             InitializeComponent();
         }
+
+        private void calculator_Click(object sender, RoutedEventArgs e)
+        {
+            float SumPoint = 0;
+            float SumCredit = 0;
+            float LikPoint = 0;
+            float AGA = 0;
+            float[] ArrayPoint = new float[n];
+            float[] ArrayCredit = new float[n];
+            string Points = string.Empty;
+            string Credit = string.Empty;
+        }
     }
 }

@@ -1,34 +1,48 @@
 # AGA
 ### MOG(ՄՈԳ) Calculator
 <p align="center">
-<img  src="https://github.com/VanHakobyan/AGA/blob/master/GIF2.gif?raw=true">
+<img  src="https://www.dropbox.com/s/1l0xcecfl1lzo48/AGAv1%2C5.gif?dl=0">
 </p><br><br>
 
 ```C#
- #region Algoritm AGA
-for (int i = 0; i < ArrayPoint.Length; i++)
+for (int i = 0; i < 7; i++)
 {
-SumPoint += ArrayPoint[i] * ArrayCredit[i];
-LikPoint += ArrayPoint[i];
-}
-for (int i = 0; i < ArrayCredit.Length; i++)
-{
-SumCredit += ArrayCredit[i];
-}
-AGA = SumPoint / SumCredit;
-#endregion
-Console.ForegroundColor = ConsoleColor.Yellow;
-Console.WriteLine("Your Average Qualitative Appraisal is: {0}", AGA);
-#region Likvid
-if (LikPoint / ArrayPoint.Length < 8)
-{
-Console.ForegroundColor = ConsoleColor.Red;
-Console.WriteLine("But you fail the exam !!!");
 
+    if (ArrayCredit[i].ToString() != "" && ArrayPoint[i].ToString() !="" )
+    {
+        try
+        {
+            SumPoint += Convert.ToSingle(ArrayPoint[i]) * Convert.ToSingle(ArrayCredit[i]);
+            LikPoint += Convert.ToSingle(ArrayPoint[i]);
+        }
+        catch (Exception)
+        {
+            MessageBox.Show("Մուտք է արված սխալ սիմվոլ !!!");
+            goto L;
+        }
+
+    }
+    else continue;
 }
-Console.WriteLine();
-#endregion
-            
+for (int i = 0; i < ArrayCredit.ToArray().Length; i++)
+{
+    if (ArrayCredit[i].ToString()!="")
+    {
+        try
+        {
+            SumCredit += Convert.ToSingle(ArrayCredit[i]);
+        }
+        catch (Exception)
+        {
+            MessageBox.Show("Մուտք է արված սխալ սիմվոլ !!!");
+            goto L;
+        }
+
+
+    }
+}
+Calculator = SumPoint / SumCredit;
+MessageBox.Show(Calculator.ToString());
  ```
 
 1. Ընդհանուր դրույթներ
@@ -70,7 +84,7 @@ Console.WriteLine();
 * For exemple<br>
 
 <p align="center">
-<img  src="https://i.gyazo.com/c1b7b82ae39df6571d42b9dd770bb92f.png">
+<img  src="https://i.gyazo.com/e24fc70dcb84141088b661de9a567814.png">
 </p><br><br>
 
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Diagnostics;
 using System.Windows;
 
 namespace AGAv1._5WPF
@@ -20,6 +21,7 @@ namespace AGAv1._5WPF
             float SumCredit = 0;
             float LikPoint = 0;
             float Calculator = 0;
+            int count = 0;
             ArrayList ArrayPoint = new ArrayList()
             {
                appraisal1.Text,
@@ -42,7 +44,17 @@ namespace AGAv1._5WPF
               credit6.Text,
               credit7.Text
             };
-           
+            for (int i = 0; i < 7; i++)
+            {
+                if ((string)ArrayCredit[i]=="" && (string)ArrayPoint[i]=="")
+                {
+                    count++;
+                }
+            }
+            if (count==7)
+            {
+                MessageBox.Show("Դուք ոչինչ չեք մուտքագրել !!!");
+            }
             string Points = string.Empty;
              string Credit = string.Empty;
             //SumPoint += Convert.ToSingle(appraisal1.Text) + Convert.ToSingle(appraisal2.Text) + Convert.ToSingle(appraisal3.Text) + Convert.ToSingle(appraisal4.Text) + Convert.ToSingle(appraisal5.Text) + Convert.ToSingle(appraisal6.Text) + Convert.ToSingle(appraisal7.Text);
@@ -86,6 +98,22 @@ namespace AGAv1._5WPF
             Calculator = SumPoint / SumCredit;
             MessageBox.Show(Calculator.ToString());
             L: MessageBox.Show("Կրկին կարող եք փորձել !!!");
+        }
+
+      
+        private void Facebook(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://web.facebook.com/VANHAKOBYAN");
+        }
+
+        private void GitHub(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://github.com/VanHakobyan/AGA");
+        }
+
+        private void Autor(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Ծրագրի հեղինակ ՝ Վան Հակոբյան");
         }
     }
 }

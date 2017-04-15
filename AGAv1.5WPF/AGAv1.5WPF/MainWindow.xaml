@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AGAv1._5WPF"
         mc:Ignorable="d"
-        Title="Միջին Որակավորման Գնահատականի Հաշվիչ v1.5" Height="350" Width="525">
+        Title="Միջին Որակավորման Գնահատականի Հաշվիչ v1.5" Height="350" Width="535"
+        ResizeMode="CanMinimize"
+        >
+
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -34,11 +37,17 @@
             <TextBox x:Name="credit7" Margin="7" Height="20" Width="60"></TextBox>
 
         </StackPanel>
-        <Button Grid.ColumnSpan="2" x:Name="calculator" Content="Հաշվի՛ր" HorizontalAlignment="Stretch" Margin="28,280,28,10" RenderTransformOrigin="0.5,1.4" Click="calculator_Click"/>
+        <Button Grid.ColumnSpan="2" x:Name="calculator" Content="Հաշվի՛ր" HorizontalAlignment="Stretch" Margin="28,280,20,10" RenderTransformOrigin="0.5,1.4" Click="calculator_Click"/>
         <StackPanel Grid.Column="2" Margin="85,10,5,283">
             <TextBlock Margin="5" FontWeight="Bold" Text="Ողջո՛ւյն հարգելի ուսանող " FontFamily="Rage Italic"></TextBlock>
+
         </StackPanel>
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="46,61,-62,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="120" Width="268"><Run Text="AGA v1.5-ի միջոցով դուք կարող"/><Run Text=" "/><Run Text="եք հաշվել "/><Run Text=" "/><Run Text="բարձրագույն ուսումնական"/><Run Text=" "/><Run Text="հաստատության ձեր ընթացիկ ՄՈԳ-ը (Միջին որակավորման գնահատականը)"/><Run Text=" "/><Run Text="հիմնվելով հիմնական ռարկաներից ստացած գնահատականների և համապատասխան կրեդիտների հիման վրա:"/></TextBlock>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="46,169,-59,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="71" Width="268" Text="Աշխատանքի համար անհրաժեշտ է լրացնել Գնահատական և Կրեդիտ տողերը համապատասխանաբար և սեղմել Հաշվիր ստեղնը:"/>
+        <Button Content="Հեղինակ" Grid.Column="2" HorizontalAlignment="Left" Margin="221,280,-38,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.067,1" Click="Autor"/>
+        <Button Content="Facebook" Grid.Column="2" HorizontalAlignment="Left" Margin="46,280,0,0" VerticalAlignment="Top" Width="75" Click="Facebook"/>
+        <Button Content="GitHub" Grid.Column="2" Margin="126,280,0,0" VerticalAlignment="Top" Click="GitHub" HorizontalAlignment="Left" Width="90"/>
+
 
     </Grid>
 </Window>

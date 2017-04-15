@@ -108,12 +108,12 @@ namespace AGAv1._5WPF
 
         private void GitHub(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://github.com/VanHakobyan/AGA");
+            Process.Start("https://github.com/VanHakobyan");
         }
 
         private void Autor(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Ծրագրի հեղինակ ՝ Վան Հակոբյան");
+            MessageBox.Show("Ծրագրի հեղինակն է Վան Հակոբյանը");
         }
     }
 }

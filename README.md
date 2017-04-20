@@ -1,5 +1,5 @@
-# AGA
-### MOG(ՄՈԳ) Calculator
+<h3><p align="center"> AGA v1.5 WPF</p></h3>
+<h4><p align="center"> MOG(ՄՈԳ) Calculator</p></h4></br>
 <p align="center">
 <img  src="http://aparanblog.do.am/gif/AGAv1-5.gif">
 </p>

@@ -53,7 +53,10 @@ AGA v1.5-ի միջոցով դուք կարող եք հաշվել  բարձրագ
 Աշխատանքի համար անհրաժեշտ է լրացնել Գնահատական և Կրեդիտ տողերը համապատասխանաբար և սեղմել Հաշվիր ստեղնը:
 
 <h4>Download</h4><br>
+
 [Link 1](http://aparanblog.do.am/aga/AGAv1.5.rar)
+
 [Link 2](https://drive.google.com/file/d/0By1MH5wlD0LhcE9mbXV2T0U0Zzg/view)
+
 [Link 3](https://www.dropbox.com/s/wt5uq1mnwqp7dpa/AGAv1.5.rar?dl=0)
 

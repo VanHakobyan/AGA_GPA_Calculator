@@ -96,8 +96,8 @@ namespace AGAv1._5WPF
                 }
             }
             Calculator = SumPoint / SumCredit;
-            MessageBox.Show(Calculator.ToString());
-            L: MessageBox.Show("Կրկին կարող եք փորձել !!!");
+            MessageBox.Show("Ձեր ՄՈԳ-ը կազմում է`" + Calculator.ToString());
+            L: MessageBox.Show("Կարող եք կրկին հաշվել!!!");
         }
 
       

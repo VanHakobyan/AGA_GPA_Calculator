@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace AGAv1._5WPF
@@ -14,8 +16,8 @@ namespace AGAv1._5WPF
         {
             InitializeComponent();
         }
-        
-        private void calculator_Click(object sender, RoutedEventArgs e)
+
+        private async void Calculator_Click(object sender, RoutedEventArgs e)
         {
             float SumPoint = 0;
             float SumCredit = 0;
@@ -46,23 +48,23 @@ namespace AGAv1._5WPF
             };
             for (int i = 0; i < 7; i++)
             {
-                if ((string)ArrayCredit[i]=="" && (string)ArrayPoint[i]=="")
+                if ((string)ArrayCredit[i] == "" && (string)ArrayPoint[i] == "")
                 {
                     count++;
                 }
             }
-            if (count==7)
+            if (count == 7)
             {
-                MessageBox.Show("Դուք ոչինչ չեք մուտքագրել !!!");
+                await Task.Run(() => MessageBox.Show("Դուք ոչինչ չեք մուտքագրել !!!"));
             }
             string Points = string.Empty;
-             string Credit = string.Empty;
+            string Credit = string.Empty;
             //SumPoint += Convert.ToSingle(appraisal1.Text) + Convert.ToSingle(appraisal2.Text) + Convert.ToSingle(appraisal3.Text) + Convert.ToSingle(appraisal4.Text) + Convert.ToSingle(appraisal5.Text) + Convert.ToSingle(appraisal6.Text) + Convert.ToSingle(appraisal7.Text);
             //SumCredit += Convert.ToSingle(credit1.Text) + Convert.ToSingle(credit2.Text) + Convert.ToSingle(credit3.Text) + Convert.ToSingle(credit4.Text) + Convert.ToSingle(credit5.Text) + Convert.ToSingle(credit6.Text) + Convert.ToSingle(credit7.Text);
             for (int i = 0; i < 7; i++)
             {
 
-                if (ArrayCredit[i].ToString() != "" && ArrayPoint[i].ToString() !="" )
+                if (ArrayCredit[i].ToString() != "" && ArrayPoint[i].ToString() != "")
                 {
                     try
                     {
@@ -71,16 +73,16 @@ namespace AGAv1._5WPF
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Մուտք է արված սխալ սիմվոլ !!!");
+                        await Task.Run(() => MessageBox.Show("Մուտք է արված սխալ սիմվոլ !!!"));
                         goto L;
                     }
-                   
+
                 }
                 else continue;
             }
             for (int i = 0; i < ArrayCredit.ToArray().Length; i++)
             {
-                if (ArrayCredit[i].ToString()!="")
+                if (ArrayCredit[i].ToString() != "")
                 {
                     try
                     {
@@ -88,32 +90,35 @@ namespace AGAv1._5WPF
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Մուտք է արված սխալ սիմվոլ !!!");
+                        await Task.Run(() => MessageBox.Show("Մուտք է արված սխալ սիմվոլ !!!"));
                         goto L;
                     }
-                   
+
 
                 }
             }
             Calculator = SumPoint / SumCredit;
-            MessageBox.Show("Ձեր ՄՈԳ-ը կազմում է`" + Calculator.ToString());
-            L: MessageBox.Show("Կարող եք կրկին հաշվել!!!");
+            await Task.Run(() => MessageBox.Show("Ձեր ՄՈԳ-ը կազմում է`" + Calculator.ToString()));
+            L: await Task.Run(() => MessageBox.Show("Կարող եք կրկին հաշվել!!!"));
         }
 
-      
-        private void Facebook(object sender, RoutedEventArgs e)
+
+        private async void Facebook(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://web.facebook.com/VANHAKOBYAN");
+            await Task.Run(() => Process.Start("https://web.facebook.com/VANHAKOBYAN"));
         }
 
-        private void GitHub(object sender, RoutedEventArgs e)
+        private async void GitHub(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://github.com/VanHakobyan");
+
+            await Task.Run(() => Process.Start("https://github.com/VanHakobyan"));
         }
 
-        private void Autor(object sender, RoutedEventArgs e)
+        private async void Autor(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Ծրագրի հեղինակն է Վան Հակոբյանը");
+            await Task.Run(() => MessageBox.Show("Ծրագրի հեղինակն է Վան Հակոբյանը"));
         }
+
+
     }
 }

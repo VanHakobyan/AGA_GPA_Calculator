@@ -19,7 +19,6 @@ for (int i = 0; i < 7; i++)
         catch (Exception)
         {
             MessageBox.Show("Մուտք է արված սխալ սիմվոլ !!!");
-            goto L;
         }
 
     }
@@ -36,7 +35,6 @@ for (int i = 0; i < ArrayCredit.ToArray().Length; i++)
         catch (Exception)
         {
             MessageBox.Show("Մուտք է արված սխալ սիմվոլ !!!");
-            goto L;
         }
 
 
@@ -52,7 +50,7 @@ AGA v1.5-ի միջոցով դուք կարող եք հաշվել  բարձրագ
 * Աշխատանքի սկզբունքը: 
 Աշխատանքի համար անհրաժեշտ է լրացնել Գնահատական և Կրեդիտ տողերը համապատասխանաբար և սեղմել Հաշվիր ստեղնը:
 
-<h4>Download Link Here</h4><br>
+<h4>Download Link Here</h4>
 
 * [Link 1](http://aparanblog.do.am/aga/AGAv1.5.rar) 
 * [Link 2](https://drive.google.com/file/d/0By1MH5wlD0LhcE9mbXV2T0U0Zzg/view) 

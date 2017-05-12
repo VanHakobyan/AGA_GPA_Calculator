@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
@@ -7,15 +9,16 @@ using System.Windows;
 
 namespace AGAv1._5WPF
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
+
+        //SqlConnection Connection = new SqlConnection();
         public MainWindow()
         {
             InitializeComponent();
         }
+     
 
         private async void Calculator_Click(object sender, RoutedEventArgs e)
         {
@@ -98,6 +101,34 @@ namespace AGAv1._5WPF
                 }
             }
             Calculator = SumPoint / SumCredit;
+
+            SqlConnectionStringBuilder conStr = new SqlConnectionStringBuilder();
+            conStr.DataSource = @"(localdb)\MSSQLLocalDB";
+            conStr.InitialCatalog = "AGA";
+            conStr.IntegratedSecurity = true;
+            SqlConnection connetion = new SqlConnection(conStr.ConnectionString);
+            string cmdText = "INSERT INTO Students(Name,AGA,Date) VALUES (@UserName,@calculator,@date)";
+            SqlCommand cmd = new SqlCommand(cmdText,connetion);
+            //cmd.Parameters.AddWithValue("ID", 1);
+            cmd.Parameters.AddWithValue("UserName", UserName.Text);
+            cmd.Parameters.AddWithValue("calculator", Calculator);
+            cmd.Parameters.AddWithValue("date", DateTime.Now);
+            cmd.CommandType = CommandType.Text;
+
+            try
+            {
+                connetion.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (connetion != null)
+                    connetion.Close();
+            }
             await Task.Run(() => MessageBox.Show("Ձեր ՄՈԳ-ը կազմում է`" + Calculator.ToString()));
             L: await Task.Run(() => MessageBox.Show("Կարող եք կրկին հաշվել!!!"));
         }
@@ -119,6 +150,9 @@ namespace AGAv1._5WPF
             await Task.Run(() => MessageBox.Show("Ծրագրի հեղինակն է Վան Հակոբյանը"));
         }
 
-
+        private void UserName_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            UserName.Text = null;
+        }
     }
 }

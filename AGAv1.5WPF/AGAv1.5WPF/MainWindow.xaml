@@ -41,7 +41,7 @@
         <StackPanel Grid.Column="2" Margin="85,10,5,283">
             <TextBlock Margin="5" FontWeight="Bold" FontFamily="Rage Italic"><Run Text="Ողջո՛ւյն հարգելի ուսանող"/><Run Text=" !!!"/><Run Text=" "/></TextBlock>
         </StackPanel>
-        <TextBox Grid.Column="2"  Margin="85,38,5,256" TextWrapping="Wrap"  Text="Ձեր անունը" TextAlignment="Center" FontFamily="Arial LatArm"/>
+        <TextBox x:Name="UserName" Grid.Column="2" Mouse.GotMouseCapture="UserName_MouseEnter" Margin="85,38,5,256" TextWrapping="Wrap"  Text="Ձեր անունը" TextOptions.TextFormattingMode="Display" TextAlignment="Center" FontFamily="Arial LatArm"/>
 
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="46,68,-62,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="120" Width="268"><Run Text="AGA v1.5-ի միջոցով դուք կարող"/><Run Text=" "/><Run Text="եք հաշվել "/><Run Text=" "/><Run Text="բարձրագույն ուսումնական"/><Run Text=" "/><Run Text="հաստատության ձեր ընթացիկ ՄՈԳ-ը (Միջին որակավորման գնահատականը)"/><Run Text=" "/><Run Text="հիմնվելով հիմնական "/><Run Text="ա"/><Run Text="ռարկաներից ստացած գնահատականների և համապատասխան կրեդիտների վրա:"/></TextBlock>
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="46,172,-59,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="71" Width="268" Text="Աշխատանքի համար անհրաժեշտ է լրացնել Գնահատական և Կրեդիտ տողերը համապատասխանաբար և սեղմել Հաշվիր ստեղնը:"/>

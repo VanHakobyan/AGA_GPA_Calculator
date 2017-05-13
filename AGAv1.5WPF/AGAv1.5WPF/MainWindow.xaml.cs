@@ -18,7 +18,7 @@ namespace AGAv1._5WPF
         {
             InitializeComponent();
         }
-        public void DataSaving(float Calculator)
+        public async void DataSaving(float Calculator)
         {
             SqlConnectionStringBuilder conStr = new SqlConnectionStringBuilder();
             conStr.DataSource = @"(localdb)\MSSQLLocalDB";
@@ -35,8 +35,8 @@ namespace AGAv1._5WPF
 
             try
             {
-                connetion.Open();
-                cmd.ExecuteNonQuery();
+               await connetion.OpenAsync();
+               await cmd.ExecuteNonQueryAsync();
             }
             catch (Exception ex)
             {
@@ -130,7 +130,7 @@ namespace AGAv1._5WPF
                 }
             }
             Calculator = SumPoint / SumCredit;
-            DataSaving(Calculator);
+         DataSaving(Calculator);
            
             await Task.Run(() => MessageBox.Show("Ձեր ՄՈԳ-ը կազմում է`" + Calculator.ToString()));
             L: await Task.Run(() => MessageBox.Show("Կարող եք կրկին հաշվել!!!"));

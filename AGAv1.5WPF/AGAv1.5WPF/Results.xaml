@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Արդյունքներ" Height="300" Width="300">
     <Grid>
-        
+        <DataGrid AlternatingRowBackground="#FFC4B0B0" x:Name="dataGrid" HorizontalAlignment="Left" Height="249" Margin="10,10,0,0" VerticalAlignment="Top" Width="270"/>
     </Grid>
 </Window>

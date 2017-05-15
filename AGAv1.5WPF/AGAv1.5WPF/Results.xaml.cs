@@ -9,6 +9,8 @@ using System.Configuration;
 
 using System.Data.SqlClient;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace AGAv1._5WPF
 {
@@ -46,6 +48,33 @@ namespace AGAv1._5WPF
             sda.Fill(dt);
             dataGrid.ItemsSource = dt.DefaultView;
             con.Close();
+        }
+
+        private async void Delete_by_ID_ClickAsync(object sender, RoutedEventArgs e)
+        {
+            string ConString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AGA;Integrated Security=True;";
+            string CmdDelete = string.Empty;
+            SqlConnection con = new SqlConnection(ConString);
+            await con.OpenAsync();
+            CmdDelete = $"DELETE FROM Students WHERE ID = '{Convert.ToInt32(ID.Text)}'";
+            SqlCommand cmd = new SqlCommand(CmdDelete, con);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("Students");
+
+            adapter.Update(dt);
+            adapter.Fill(dt);
+            dt.AcceptChanges();
+            //CollectionViewSource.GetDefaultView(dataGrid.ItemsSource).Refresh();
+            //dataGrid.Items.Refresh();
+            //dataGrid.UpdateLayout();
+            //dataGrid.ItemsSource = dt.DefaultView;
+            ShowMember();
+            con.Close();
+        }
+
+        private void ID_GotMouseCapture(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            ID.Text = null;
         }
     }
 }

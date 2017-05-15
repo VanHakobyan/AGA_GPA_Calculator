@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AGAv1._5WPF"
         mc:Ignorable="d"
-        Title="Արդյունքներ" Height="300" Width="300">
+        Title="Արդյունքներ" Height="300" Width="308">
     <Grid>
-        <DataGrid AlternatingRowBackground="#FFC4B0B0" x:Name="dataGrid" HorizontalAlignment="Left" Height="249" Margin="10,10,0,0" VerticalAlignment="Top" Width="270"/>
+        <DataGrid AlternatingRowBackground="#FFC4B0B0" x:Name="dataGrid" HorizontalAlignment="Left" Height="210" Margin="10,10,0,0"  VerticalAlignment="Top" Width="278"/>
+        <Button x:Name="Delete_by_ID" Content="Delete by ID" HorizontalAlignment="Left" Margin="10,239,0,0" VerticalAlignment="Top" Width="75" Click=" Delete_by_ID_ClickAsync"/>
+        <TextBox x:Name="ID" HorizontalAlignment="Left" Mouse.GotMouseCapture="ID_GotMouseCapture" Height="20" Margin="107,239,0,0" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top" Width="56" TextAlignment="Center" AutomationProperties.IsColumnHeader="True"/>
     </Grid>
 </Window>

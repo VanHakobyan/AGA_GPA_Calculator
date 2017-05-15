@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Input;
 
 namespace AGAv1._5WPF
 {
@@ -56,14 +57,21 @@ namespace AGAv1._5WPF
             string CmdDelete = string.Empty;
             SqlConnection con = new SqlConnection(ConString);
             await con.OpenAsync();
-            CmdDelete = $"DELETE FROM Students WHERE ID = '{Convert.ToInt32(ID.Text)}'";
-            SqlCommand cmd = new SqlCommand(CmdDelete, con);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("Students");
+            try
+            {
+                CmdDelete = $"DELETE FROM Students WHERE ID = '{Convert.ToInt32(ID.Text)}'";
+                SqlCommand cmd = new SqlCommand(CmdDelete, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("Students");
 
-            adapter.Update(dt);
-            adapter.Fill(dt);
-            dt.AcceptChanges();
+                adapter.Update(dt);
+                adapter.Fill(dt);
+                dt.AcceptChanges();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Մուտք է արված սխալ լիմվոլ !!!");
+            }
             //CollectionViewSource.GetDefaultView(dataGrid.ItemsSource).Refresh();
             //dataGrid.Items.Refresh();
             //dataGrid.UpdateLayout();
@@ -72,9 +80,41 @@ namespace AGAv1._5WPF
             con.Close();
         }
 
+        private async void DeleteAll_ClickAsync(object sender, RoutedEventArgs e)
+        {
+            string ConString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AGA;Integrated Security=True;";
+            string CmdDeleteAll = string.Empty;
+            SqlConnection con = new SqlConnection(ConString);
+            await con.OpenAsync();
+            try
+            {
+                CmdDeleteAll = $"DELETE FROM Students";
+                SqlCommand cmd = new SqlCommand(CmdDeleteAll, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("Students");
+                              
+                adapter.Update(dt);
+                adapter.Fill(dt);
+                dt.AcceptChanges();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Սխալ է!!!");
+            }
+            ShowMember();
+            con.Close();
+        }
+
         private void ID_GotMouseCapture(object sender, System.Windows.Input.MouseEventArgs e)
         {
             ID.Text = null;
+        }
+        private void ID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Delete_by_ID_ClickAsync(null, null);
+            }
         }
     }
 }

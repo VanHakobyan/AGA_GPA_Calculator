@@ -1,7 +1,7 @@
 <h3><p align="center"> AGA v1.5</p></h3>
 <h4><p align="center"> GPA(ՄՈԳ) Calculator</p></h4></br>
 <p align="center">
-<img  src="https://github.com/VanHakobyan/AGA/blob/master/Bidza.gif?raw=true">
+<img  src="https://github.com/VanHakobyan/AGA/blob/master/AGAv1.6RC.gif?raw=true">
 </p>
 </br>
 

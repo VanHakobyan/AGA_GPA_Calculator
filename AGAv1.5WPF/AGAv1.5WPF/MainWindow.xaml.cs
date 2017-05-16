@@ -18,9 +18,9 @@ namespace AGAv1._5WPF
         {
             InitializeComponent();
         }
+        SqlConnectionStringBuilder conStr = new SqlConnectionStringBuilder();
         public async void DataSaving(float Calculator)
         {
-            SqlConnectionStringBuilder conStr = new SqlConnectionStringBuilder();
             conStr.DataSource = @"(localdb)\MSSQLLocalDB";
             conStr.InitialCatalog = "AGA";
             conStr.IntegratedSecurity = true;
@@ -35,8 +35,8 @@ namespace AGAv1._5WPF
 
             try
             {
-               await connetion.OpenAsync();
-               await cmd.ExecuteNonQueryAsync();
+                await connetion.OpenAsync();
+                await cmd.ExecuteNonQueryAsync();
             }
             catch (Exception ex)
             {
@@ -51,6 +51,7 @@ namespace AGAv1._5WPF
 
         private async void Calculator_Click(object sender, RoutedEventArgs e)
         {
+            string Name = UserName.Text;
             float SumPoint = 0;
             float SumCredit = 0;
             float LikPoint = 0;
@@ -130,10 +131,10 @@ namespace AGAv1._5WPF
                 }
             }
             Calculator = SumPoint / SumCredit;
-         DataSaving(Calculator);
-           
-            await Task.Run(() => MessageBox.Show("Ձեր ՄՈԳ-ը կազմում է`" + Calculator.ToString()));
-            L: await Task.Run(() => MessageBox.Show("Կարող եք կրկին հաշվել!!!"));
+            DataSaving(Calculator);
+
+            await Task.Run(() => MessageBox.Show($"Հարգելի {Name} Ձեր ՄՈԳ-ը կազմում է`" + Calculator.ToString()));
+            L: await Task.Run(() => MessageBox.Show($"{Name} կարող եք կրկին հաշվել!!!"));
         }
 
 
@@ -153,10 +154,10 @@ namespace AGAv1._5WPF
             await Task.Run(() => MessageBox.Show("Ծրագրի հեղինակն է Վան Հակոբյանը"));
         }
 
-        private void UserName_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)  => UserName.Text = null;
+        private void UserName_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e) => UserName.Text = null;
 
 
-        private void Show_Click(object sender, RoutedEventArgs e) => new Results().Show();
+       private void ShowList_Click(object sender, RoutedEventArgs e) => new Results().Show();
 
     }
 }

@@ -37,7 +37,7 @@
             <TextBox x:Name="credit7" Margin="7" Height="20" Width="60"></TextBox>
 
         </StackPanel>
-        <Button x:Name="Show" Content="Արդյունքներ" HorizontalAlignment="Stretch" Margin="28,310,20,10" Grid.ColumnSpan="2" Click="Show_Click"/>
+        <Button x:Name="Show" Content="Արդյունքներ" HorizontalAlignment="Stretch" Margin="28,310,20,10" Grid.ColumnSpan="2" Click="ShowList_Click"/>
         <Button Grid.ColumnSpan="2" x:Name="calculator" Content="Հաշվի՛ր" HorizontalAlignment="Stretch" Margin="28,275,20,41" RenderTransformOrigin="0.5,1.4" Click="Calculator_Click"/>
         <StackPanel Grid.Column="2" Margin="85,10,5,283">
             <TextBlock Margin="5" FontWeight="Bold" FontFamily="Rage Italic"><Run Text="Ողջո՛ւյն հարգելի ուսանող"/><Run Text=" !!!"/><Run Text=" "/></TextBlock>

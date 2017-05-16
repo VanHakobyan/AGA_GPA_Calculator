@@ -20,8 +20,11 @@ namespace AGAv1._5WPF
         }
         public async void DataSaving(float Calculator)
         {
-            string conStr = @"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog=AGA; Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True";
-            SqlConnection connetion = new SqlConnection(conStr);
+            SqlConnectionStringBuilder conStr = new SqlConnectionStringBuilder();
+            conStr.DataSource = @"(localdb)\MSSQLLocalDB";
+            conStr.InitialCatalog = "AGA";
+            conStr.IntegratedSecurity = true;
+            SqlConnection connetion = new SqlConnection(conStr.ConnectionString);
             string cmdText = "INSERT INTO Students(Name,AGA,Date) VALUES (@UserName,@calculator,@date)";
             SqlCommand cmd = new SqlCommand(cmdText, connetion);
             //cmd.Parameters.AddWithValue("ID", 1);
@@ -32,8 +35,8 @@ namespace AGAv1._5WPF
 
             try
             {
-                await connetion.OpenAsync();
-                await cmd.ExecuteNonQueryAsync();
+               await connetion.OpenAsync();
+               await cmd.ExecuteNonQueryAsync();
             }
             catch (Exception ex)
             {
@@ -127,8 +130,8 @@ namespace AGAv1._5WPF
                 }
             }
             Calculator = SumPoint / SumCredit;
-            DataSaving(Calculator);
-
+         DataSaving(Calculator);
+           
             await Task.Run(() => MessageBox.Show("Ձեր ՄՈԳ-ը կազմում է`" + Calculator.ToString()));
             L: await Task.Run(() => MessageBox.Show("Կարող եք կրկին հաշվել!!!"));
         }
@@ -150,7 +153,7 @@ namespace AGAv1._5WPF
             await Task.Run(() => MessageBox.Show("Ծրագրի հեղինակն է Վան Հակոբյանը"));
         }
 
-        private void UserName_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e) => UserName.Text = null;
+        private void UserName_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)  => UserName.Text = null;
 
 
         private void Show_Click(object sender, RoutedEventArgs e) => new Results().Show();

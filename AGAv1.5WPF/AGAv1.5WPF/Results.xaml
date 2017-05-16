@@ -9,12 +9,8 @@
     <Grid>
         <DataGrid AlternatingRowBackground="#FFC4B0B0" Name="dataGrid" HorizontalAlignment="Left" Height="210" Margin="10,10,0,0"  VerticalAlignment="Top" Width="278"/>
         <Button x:Name="Delete_by_ID" Content="Delete by ID" HorizontalAlignment="Left" Margin="10,239,0,0" VerticalAlignment="Top" Width="75" Click=" Delete_by_ID_ClickAsync"/>
-        <TextBox x:Name="ID" HorizontalAlignment="Left" Mouse.GotMouseCapture="ID_GotMouseCapture" Height="20" Margin="107,239,0,0" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top" Width="56" TextAlignment="Center" AutomationProperties.IsColumnHeader="True">
-            <TextBox.InputBindings>
-                <KeyBinding Key="Return"/>
-                <KeyBinding Key="Tab" Command="{Binding TabKeyCommand}"/>
-            </TextBox.InputBindings>
-        </TextBox>
+        <TextBox x:Name="ID" GotMouseCapture="ID_GotMouseCapture" HorizontalAlignment="Left" KeyUp="ID_KeyDown" Height="20" Margin="107,239,0,0" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top" Width="56" TextAlignment="Center" Cursor="Arrow"/>
+
         <Button x:Name="DeleteAll" Content="Delete All" HorizontalAlignment="Left" Margin="199,239,0,0" VerticalAlignment="Top" Width="89" Click="DeleteAll_ClickAsync"/>
     </Grid>
 </Window>

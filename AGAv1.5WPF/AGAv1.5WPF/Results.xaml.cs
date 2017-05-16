@@ -38,7 +38,7 @@ namespace AGAv1._5WPF
         //}
         private async void ShowMember()
         {
-            string ConString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AGA;Integrated Security=True;";
+            string ConString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AGA;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True";
             string CmdString = string.Empty;
             SqlConnection con = new SqlConnection(ConString);
             await con.OpenAsync();
@@ -53,7 +53,7 @@ namespace AGAv1._5WPF
 
         private async void Delete_by_ID_ClickAsync(object sender, RoutedEventArgs e)
         {
-            string ConString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AGA;Integrated Security=True;";
+            string ConString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AGA; Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True";
             string CmdDelete = string.Empty;
             SqlConnection con = new SqlConnection(ConString);
             await con.OpenAsync();
@@ -82,7 +82,7 @@ namespace AGAv1._5WPF
 
         private async void DeleteAll_ClickAsync(object sender, RoutedEventArgs e)
         {
-            string ConString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AGA;Integrated Security=True;";
+            string ConString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AGA;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True";
             string CmdDeleteAll = string.Empty;
             SqlConnection con = new SqlConnection(ConString);
             await con.OpenAsync();

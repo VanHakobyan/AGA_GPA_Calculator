@@ -5,44 +5,7 @@
 </p>
 </br>
 
-```C#
-for (int i = 0; i < 7; i++)
-{
 
-    if (ArrayCredit[i].ToString() != "" && ArrayPoint[i].ToString() !="" )
-    {
-        try
-        {
-            SumPoint += Convert.ToSingle(ArrayPoint[i]) * Convert.ToSingle(ArrayCredit[i]);
-            LikPoint += Convert.ToSingle(ArrayPoint[i]);
-        }
-        catch (Exception)
-        {
-            MessageBox.Show("Մուտք է արված սխալ սիմվոլ !!!");
-        }
-
-    }
-    else continue;
-}
-for (int i = 0; i < ArrayCredit.ToArray().Length; i++)
-{
-    if (ArrayCredit[i].ToString()!="")
-    {
-        try
-        {
-            SumCredit += Convert.ToSingle(ArrayCredit[i]);
-        }
-        catch (Exception)
-        {
-            MessageBox.Show("Մուտք է արված սխալ սիմվոլ !!!");
-        }
-
-
-    }
-}
-Calculator = SumPoint / SumCredit;
-MessageBox.Show(Calculator.ToString());
- ```
 
 * Կիրառությունը: 
 AGA v1.5-ի միջոցով դուք կարող եք հաշվել  բարձրագույն ուսումնական հաստատության ձեր ընթացիկ ՄՈԳ-ը (Միջին որակավորման գնահատականը) հիմնվելով հիմնական առարկաներից ստացած գնահատականների և համապատասխան կրեդիտների վրա:

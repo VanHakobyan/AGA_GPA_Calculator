@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AGAv1._5WPF"
         mc:Ignorable="d"
-        Title="Միջին Որակավորման Գնահատականի Հաշվիչ v1.5" Height="380" Width="535"
+        Title="Միջին Որակավորման Գնահատականի Հաշվիչ v1.6 RC" Height="380" Width="535"
         ResizeMode="CanMinimize"
         >
 

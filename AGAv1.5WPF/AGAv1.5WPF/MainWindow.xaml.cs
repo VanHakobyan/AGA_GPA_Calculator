@@ -19,17 +19,17 @@ namespace AGAv1._5WPF
             InitializeComponent();
         }
         SqlConnectionStringBuilder conStr = new SqlConnectionStringBuilder();
-        public async void DataSaving(float Calculator)
+        public async void DataSaving(float calculator)
         {
             conStr.DataSource = @"(localdb)\MSSQLLocalDB";
             conStr.InitialCatalog = "AGA";
             conStr.IntegratedSecurity = true;
-            SqlConnection connetion = new SqlConnection(conStr.ConnectionString);
-            string cmdText = "INSERT INTO Students(Name,AGA,Date) VALUES (@UserName,@calculator,@date)";
-            SqlCommand cmd = new SqlCommand(cmdText, connetion);
+            var connetion = new SqlConnection(conStr.ConnectionString);
+            var cmdText = "INSERT INTO Students(Name,AGA,Date) VALUES (@UserName,@calculator,@date)";
+            var cmd = new SqlCommand(cmdText, connetion);
             //cmd.Parameters.AddWithValue("ID", 1);
             cmd.Parameters.AddWithValue("UserName", UserName.Text);
-            cmd.Parameters.AddWithValue("calculator", Calculator);
+            cmd.Parameters.AddWithValue("calculator", calculator);
             cmd.Parameters.AddWithValue("date", DateTime.Now);
             cmd.CommandType = CommandType.Text;
 
@@ -44,20 +44,17 @@ namespace AGAv1._5WPF
             }
             finally
             {
-                if (connetion != null)
-                    connetion.Close();
+                connetion.Close();
             }
         }
 
         private async void Calculator_Click(object sender, RoutedEventArgs e)
         {
-            string Name = UserName.Text;
-            float SumPoint = 0;
-            float SumCredit = 0;
-            float LikPoint = 0;
-            float Calculator = 0;
-            int count = 0;
-            ArrayList ArrayPoint = new ArrayList()
+            var name = UserName.Text;
+            float sumPoint = 0;
+            float sumCredit = 0;
+            var count = 0;
+            var arrayPoint = new ArrayList
             {
                appraisal1.Text,
                appraisal2.Text,
@@ -66,10 +63,9 @@ namespace AGAv1._5WPF
                appraisal5.Text,
                appraisal6.Text,
                appraisal7.Text
-
             };
 
-            ArrayList ArrayCredit = new ArrayList()
+            var arrayCredit = new ArrayList
             {
               credit1.Text,
               credit2.Text,
@@ -79,85 +75,55 @@ namespace AGAv1._5WPF
               credit6.Text,
               credit7.Text
             };
-            for (int i = 0; i < 7; i++)
+            for (var i = 0; i < 7; i++) if ((string)arrayCredit[i] == string.Empty && (string)arrayPoint[i] == String.Empty) count++;
+            if (count == 7) await Task.Run(() => MessageBox.Show("Դուք ոչինչ չեք մուտքագրել !!!"));
+            for (var i = 0; i < 7; i++)
             {
-                if ((string)ArrayCredit[i] == "" && (string)ArrayPoint[i] == "")
-                {
-                    count++;
-                }
-            }
-            if (count == 7)
-            {
-                await Task.Run(() => MessageBox.Show("Դուք ոչինչ չեք մուտքագրել !!!"));
-            }
-            string Points = string.Empty;
-            string Credit = string.Empty;
-            //SumPoint += Convert.ToSingle(appraisal1.Text) + Convert.ToSingle(appraisal2.Text) + Convert.ToSingle(appraisal3.Text) + Convert.ToSingle(appraisal4.Text) + Convert.ToSingle(appraisal5.Text) + Convert.ToSingle(appraisal6.Text) + Convert.ToSingle(appraisal7.Text);
-            //SumCredit += Convert.ToSingle(credit1.Text) + Convert.ToSingle(credit2.Text) + Convert.ToSingle(credit3.Text) + Convert.ToSingle(credit4.Text) + Convert.ToSingle(credit5.Text) + Convert.ToSingle(credit6.Text) + Convert.ToSingle(credit7.Text);
-            for (int i = 0; i < 7; i++)
-            {
-
-                if (ArrayCredit[i].ToString() != "" && ArrayPoint[i].ToString() != "")
+                if (arrayCredit[i].ToString() != "" && arrayPoint[i].ToString() != "")
                 {
                     try
                     {
-                        SumPoint += Convert.ToSingle(ArrayPoint[i]) * Convert.ToSingle(ArrayCredit[i]);
-                        LikPoint += Convert.ToSingle(ArrayPoint[i]);
+                        sumPoint += Convert.ToSingle(arrayPoint[i]) * Convert.ToSingle(arrayCredit[i]);
                     }
                     catch (Exception)
                     {
                         await Task.Run(() => MessageBox.Show("Մուտք է արված սխալ սիմվոլ !!!"));
                         goto L;
                     }
-
                 }
                 else continue;
             }
-            for (int i = 0; i < ArrayCredit.ToArray().Length; i++)
+            for (var i = 0; i < arrayCredit.ToArray().Length; i++)
             {
-                if (ArrayCredit[i].ToString() != "")
+                if (arrayCredit[i].ToString() == String.Empty) continue;
+                try
                 {
-                    try
-                    {
-                        SumCredit += Convert.ToSingle(ArrayCredit[i]);
-                    }
-                    catch (Exception)
-                    {
-                        await Task.Run(() => MessageBox.Show("Մուտք է արված սխալ սիմվոլ !!!"));
-                        goto L;
-                    }
-
-
+                    sumCredit += Convert.ToSingle(arrayCredit[i]);
+                }
+                catch (Exception)
+                {
+                    await Task.Run(() => MessageBox.Show("Մուտք է արված սխալ սիմվոլ !!!"));
+                    goto L;
                 }
             }
-            Calculator = SumPoint / SumCredit;
-            DataSaving(Calculator);
+            var calculatorLocal = sumPoint / sumCredit;
+            DataSaving(calculatorLocal);
 
-            await Task.Run(() => MessageBox.Show($"Հարգելի {Name} Ձեր ՄՈԳ-ը կազմում է`" + Calculator.ToString()));
-            L: await Task.Run(() => MessageBox.Show($"{Name} կարող եք կրկին հաշվել!!!"));
+            await Task.Run(() => MessageBox.Show($"Հարգելի {name} Ձեր ՄՈԳ-ը կազմում է`" + calculatorLocal));
+            L: await Task.Run(() => MessageBox.Show($"{name} կարող եք կրկին հաշվել!!!"));
         }
 
 
-        private async void Facebook(object sender, RoutedEventArgs e)
-        {
-            await Task.Run(() => Process.Start("https://web.facebook.com/VANHAKOBYAN"));
-        }
+        private async void Facebook(object sender, RoutedEventArgs e) => await Task.Run(() => Process.Start("https://web.facebook.com/VANHAKOBYAN"));
 
-        private async void GitHub(object sender, RoutedEventArgs e)
-        {
+        private async void GitHub(object sender, RoutedEventArgs e) => await Task.Run(() => Process.Start("https://github.com/VanHakobyan"));
 
-            await Task.Run(() => Process.Start("https://github.com/VanHakobyan"));
-        }
-
-        private async void Autor(object sender, RoutedEventArgs e)
-        {
-            await Task.Run(() => MessageBox.Show("Ծրագրի հեղինակն է Վան Հակոբյանը"));
-        }
+        private async void Autor(object sender, RoutedEventArgs e) => await Task.Run(() => MessageBox.Show("Ծրագրի հեղինակն է Վան Հակոբյանը"));
 
         private void UserName_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e) => UserName.Text = null;
 
 
-       private void ShowList_Click(object sender, RoutedEventArgs e) => new Results().Show();
+        private void ShowList_Click(object sender, RoutedEventArgs e) => new Results().Show();
 
     }
 }

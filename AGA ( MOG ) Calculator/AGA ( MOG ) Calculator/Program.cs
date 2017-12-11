@@ -46,7 +46,7 @@ namespace AGA___MOG___Calculator
 
                 try
                 {
-                    if (!methods.isNumber(Lessons))
+                    if (!Check.IsNumber(Lessons,out n))
                     {
                         Console.WriteLine("Error: Input number");
                     }

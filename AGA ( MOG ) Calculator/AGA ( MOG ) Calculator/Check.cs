@@ -2,6 +2,7 @@
 {
     public class Check
     {
+        //not use this code !!!
         public static bool IsNumber(object pValue, out int x)
         {
             x = 0;
